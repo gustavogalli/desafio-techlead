@@ -29,4 +29,11 @@ public class Book {
 
     private List<Customer> borrowers;
 
+//    @ManyToOne
+//    @JoinColumn(name = "id_person")
+//    private Integer uploader;
+//
+//    @JsonFormat(pattern = "dd/MM/yyyy")
+//    private LocalDate uploadDate;
+
 }
