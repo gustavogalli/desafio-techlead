@@ -1,14 +1,10 @@
 package com.techlead.library.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.HashSet;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -33,7 +29,4 @@ public abstract class Person {
 
     private String password;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "uploader")
-    private Set<Book> uploadedBooks = new HashSet<>();
 }

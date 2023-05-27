@@ -1,11 +1,8 @@
 package com.techlead.library.controller;
 
-import com.techlead.library.domain.Book;
 import com.techlead.library.domain.dtos.BookDTO;
 import com.techlead.library.service.BookService;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;

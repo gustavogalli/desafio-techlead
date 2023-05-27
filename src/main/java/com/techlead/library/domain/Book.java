@@ -6,8 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -26,14 +24,15 @@ public class Book {
     private String author;
     private String publisher;
     private Integer pageQty;
+    private boolean borrowed;
 
-    private List<Customer> borrowers;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer uploader;
 
-//    @ManyToOne
-//    @JoinColumn(name = "id_person")
-//    private Integer uploader;
-//
-//    @JsonFormat(pattern = "dd/MM/yyyy")
-//    private LocalDate uploadDate;
+    @ManyToOne
+    @JoinColumn(name = "customer_borrower_id")
+    private Customer borrower;
+
 
 }

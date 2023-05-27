@@ -4,8 +4,8 @@ import com.techlead.library.domain.Book;
 import com.techlead.library.domain.dtos.BookDTO;
 import com.techlead.library.repository.BookRepository;
 import com.techlead.library.service.BookService;
-import com.techlead.library.service.exceptions.ObjectNotFoundException;
 import com.techlead.library.service.exceptions.DataIntegrityViolationException;
+import com.techlead.library.service.exceptions.ObjectNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,7 +54,7 @@ public class BookServiceImpl implements BookService {
     public void delete(Integer id){
         Optional<Book> foundBook = this.repository.findById(id);
 
-        if(foundBook.get().getBorrowers().size() > 0){
+        if(foundBook.get().isBorrowed()){
             throw new DataIntegrityViolationException("The book is borrowed and cannot be deleted.");
         }
         this.repository.deleteById(id);
