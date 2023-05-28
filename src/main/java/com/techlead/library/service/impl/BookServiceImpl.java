@@ -63,7 +63,7 @@ public class BookServiceImpl implements BookService {
     private void findByIsbn(BookDTO dto){
         Optional<Book> foundBook = this.repository.findByIsbn(dto.getIsbn());
 
-        if(foundBook.isPresent() && !foundBook.get().getId().equals(dto.getIsbn())){
+        if(foundBook.isPresent() && !foundBook.get().getId().equals(dto.getId())){
             throw new DataIntegrityViolationException("Book already registered.");
         }
     }

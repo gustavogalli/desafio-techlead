@@ -36,7 +36,7 @@ public class DBService {
         // id name cpf email password profiles uploadedBooks borrowedBooks
         Customer cust1 = new Customer(null, "John", "1234567810", "john@mail.com",
                 encoder.encode("123"), null, null);
-        cust1.addProfile(Profile.ADMIN);
+//        cust1.addProfile(Profile.ADMIN);
 
         Customer cust2 = new Customer(null, "Mary", "65432198745", "mary@mail.com",
                 encoder.encode("123"), null, null);

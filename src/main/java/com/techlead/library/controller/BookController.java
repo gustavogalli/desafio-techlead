@@ -44,7 +44,7 @@ public class BookController {
         return ResponseEntity.created(uri).build();
     }
 
-    @PutMapping
+    @PutMapping(ID)
     public ResponseEntity<BookDTO> update(@PathVariable Integer id, @Valid @RequestBody BookDTO dto){
         dto.setId(id);
         return ResponseEntity.ok().body(mapper.map(service.update(dto), BookDTO.class));
