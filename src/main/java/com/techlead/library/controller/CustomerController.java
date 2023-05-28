@@ -1,5 +1,6 @@
 package com.techlead.library.controller;
 
+import com.techlead.library.domain.Customer;
 import com.techlead.library.domain.dtos.CustomerDTO;
 import com.techlead.library.service.CustomerService;
 import jakarta.validation.Valid;
@@ -26,35 +27,35 @@ public class CustomerController {
         this.mapper = mapper;
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN')")
+//    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping
     public ResponseEntity<List<CustomerDTO>> findAll(){
         return ResponseEntity.ok().body(this.service.findAll()
                 .stream().map(book -> mapper.map(book, CustomerDTO.class)).collect(Collectors.toList()));
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN')")
+//    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping(ID)
     public ResponseEntity<CustomerDTO> findById(@PathVariable Integer id){
         return ResponseEntity.ok().body(mapper.map(service.findById(id), CustomerDTO.class));
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN')")
+//    @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping
     public ResponseEntity<CustomerDTO> create(@Valid @RequestBody CustomerDTO dto) {
-        URI uri = ServletUriComponentsBuilder
-                .fromCurrentRequestUri().path(ID).buildAndExpand(service.create(dto).getId()).toUri();
+        Customer newObj = service.create(dto);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newObj.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN')")
-    @PutMapping
+//    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PutMapping(ID)
     public ResponseEntity<CustomerDTO> update(@PathVariable Integer id, @Valid @RequestBody CustomerDTO dto){
         dto.setId(id);
         return ResponseEntity.ok().body(mapper.map(service.update(dto), CustomerDTO.class));
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN')")
+//    @PreAuthorize("hasAnyRole('ADMIN')")
     @DeleteMapping(ID)
     public ResponseEntity<CustomerDTO> delete(@PathVariable Integer id){
         this.service.delete(id);

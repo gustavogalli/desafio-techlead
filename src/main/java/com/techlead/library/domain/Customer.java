@@ -13,7 +13,7 @@ import java.util.Set;
 
 @Getter
 @Setter
-@Entity(name = "l02_customer")
+@Entity(name = "l03_customer")
 public class Customer extends Person {
 
     public Customer(){
