@@ -1,7 +1,6 @@
 package com.techlead.library.repository;
 
 import com.techlead.library.domain.Book;
-import com.techlead.library.domain.dtos.BookDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
