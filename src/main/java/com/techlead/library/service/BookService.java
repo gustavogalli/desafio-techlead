@@ -13,7 +13,7 @@ public interface BookService {
 
     Book findById(Integer id);
 
-    Book upload(BookDTO dto);
+    Book create(BookDTO dto);
 
     Book update(BookDTO dto);
 
