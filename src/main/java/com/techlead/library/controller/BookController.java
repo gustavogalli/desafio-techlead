@@ -2,6 +2,7 @@ package com.techlead.library.controller;
 
 import com.techlead.library.domain.dtos.BookDTO;
 import com.techlead.library.service.BookService;
+import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,14 +38,14 @@ public class BookController {
     }
 
     @PostMapping
-    public ResponseEntity<BookDTO> upload(@RequestBody BookDTO dto) {
+    public ResponseEntity<BookDTO> create(@Valid @RequestBody BookDTO dto) {
         URI uri = ServletUriComponentsBuilder
-                .fromCurrentRequestUri().path(ID).buildAndExpand(service.upload(dto).getId()).toUri();
+                .fromCurrentRequestUri().path(ID).buildAndExpand(service.create(dto).getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
 
     @PutMapping
-    public ResponseEntity<BookDTO> update(@PathVariable Integer id, @RequestBody BookDTO dto){
+    public ResponseEntity<BookDTO> update(@PathVariable Integer id, @Valid @RequestBody BookDTO dto){
         dto.setId(id);
         return ResponseEntity.ok().body(mapper.map(service.update(dto), BookDTO.class));
     }

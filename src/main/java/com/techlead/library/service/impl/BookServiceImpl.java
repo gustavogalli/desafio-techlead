@@ -28,7 +28,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<Book> findAll(){ // ok
+    public List<Book> findAll(){
         return this.repository.findAll();
     }
 
@@ -39,7 +39,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book upload(BookDTO dto){
+    public Book create(BookDTO dto){
         findByIsbn(dto);
         return this.repository.save(mapper.map(dto, Book.class));
     }
