@@ -39,4 +39,6 @@ public class CustomerDTO {
 
 //    @NotNull(message = "BORROWED BOOKS is required.")
     private List<Integer> borrowedBooks;
+
+    private Integer daysOfPenalty;
 }

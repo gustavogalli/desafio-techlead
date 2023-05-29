@@ -34,4 +34,6 @@ public class Customer extends Person {
 //    @OneToMany(mappedBy = "borrower")
     private List<Integer> borrowedBooks;
 
+    private Integer daysOfPenalty;
+
 }
