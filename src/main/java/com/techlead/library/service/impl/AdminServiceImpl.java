@@ -44,62 +44,9 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public Admin findByCpf(String cpf){
-        Optional<Admin> foundAdmin = this.repository.findByCpf(cpf);
-        return foundAdmin.orElseThrow(() -> new ObjectNotFoundException("Object not found."));
-    }
-
-    @Override
     public Admin findByEmail(String email){
         Optional<Admin> foundAdmin = this.repository.findByEmail(email);
         return foundAdmin.orElseThrow(() -> new ObjectNotFoundException("Object not found."));
     }
 
-    @Override
-    public Admin create(AdminDTO dto) {
-        dto.setId(null);
-        dto.setType("Admin");
-        dto.setPassword(encoder.encode(dto.getPassword()));
-        validateCpfAndEmail(dto);
-        return repository.save(mapper.map(dto, Admin.class));
-    }
-
-    @Override
-    public Admin update(AdminDTO dto) {
-        findByCpf(dto);
-        dto.setPassword(encoder.encode(dto.getPassword()));
-        return this.repository.save(mapper.map(dto, Admin.class));
-    }
-
-    @Override
-    public void delete(Integer id) {
-        Optional<Admin> foundAdmin = this.repository.findById(id);
-
-        if(foundAdmin.get().getBorrowedBooks().size() > 0){
-            throw new DataIntegrityViolationException("Admin has borrowed books and cannot be deleted.");
-        }
-        this.repository.deleteById(id);
-    }
-
-    private void findByCpf(AdminDTO dto){
-        Optional<Admin> foundAdmin = this.repository.findByCpf(dto.getCpf());
-
-        if(foundAdmin.isPresent() && !foundAdmin.get().getId().equals(dto.getId())){
-            throw new DataIntegrityViolationException("Admin already registered.");
-        }
-    }
-
-    private void validateCpfAndEmail(AdminDTO dto){
-        Optional<Person> obj = personRepository.findByCpf(dto.getCpf());
-
-        if(obj.isPresent() && obj.get().getId() != dto.getId()){
-            throw new DataIntegrityViolationException("CPF already registered.");
-        }
-
-        obj = personRepository.findByEmail(dto.getEmail());
-
-        if(obj.isPresent() && obj.get().getId() != dto.getId()){
-            throw new DataIntegrityViolationException("Email already registered");
-        }
-    }
 }

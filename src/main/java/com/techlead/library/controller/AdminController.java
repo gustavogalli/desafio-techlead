@@ -26,21 +26,9 @@ public class AdminController {
     }
 
 //    @PreAuthorize("hasAnyRole('ADMIN')")
-    @GetMapping
-    public ResponseEntity<List<AdminDTO>> findAll(){
-        return ResponseEntity.ok().body(this.service.findAll()
-                .stream().map(customer -> mapper.map(customer, AdminDTO.class)).collect(Collectors.toList()));
-    }
-
-//    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping(ID)
     public ResponseEntity<AdminDTO> findById(@PathVariable Integer id){
         return ResponseEntity.ok().body(mapper.map(service.findById(id), AdminDTO.class));
-    }
-
-    @GetMapping("/cpf/{cpf}")
-    public ResponseEntity<AdminDTO> findByCpf(@PathVariable String cpf){
-        return ResponseEntity.ok().body(mapper.map(service.findByCpf(cpf), AdminDTO.class));
     }
 
     @GetMapping("/email/{email}")
@@ -48,24 +36,4 @@ public class AdminController {
         return ResponseEntity.ok().body(mapper.map(service.findByEmail(email), AdminDTO.class));
     }
 
-//    @PreAuthorize("hasAnyRole('ADMIN')")
-    @PostMapping
-    public ResponseEntity<AdminDTO> create(@Valid @RequestBody AdminDTO dto) {
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(service.create(dto).getId()).toUri();
-        return ResponseEntity.created(uri).build();
-    }
-
-//    @PreAuthorize("hasAnyRole('ADMIN')")
-    @PutMapping(ID)
-    public ResponseEntity<AdminDTO> update(@PathVariable Integer id, @Valid @RequestBody AdminDTO dto){
-        dto.setId(id);
-        return ResponseEntity.ok().body(mapper.map(service.update(dto), AdminDTO.class));
-    }
-
-//    @PreAuthorize("hasAnyRole('ADMIN')")
-    @DeleteMapping(ID)
-    public ResponseEntity<AdminDTO> delete(@PathVariable Integer id){
-        this.service.delete(id);
-        return ResponseEntity.noContent().build();
-    }
 }

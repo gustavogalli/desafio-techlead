@@ -13,13 +13,5 @@ public interface AdminService {
 
     Admin findById(Integer id);
 
-    Admin findByCpf(String cpf);
-
     Admin findByEmail(String email);
-
-    Admin create(AdminDTO dto);
-
-    Admin update(AdminDTO dto);
-
-    void delete(Integer id);
 }

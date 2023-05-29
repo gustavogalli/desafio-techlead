@@ -16,15 +16,6 @@ public class AdminDTO {
 
     private Integer id;
 
-    @NotNull(message = "NAME is required.")
-    private String name;
-
-    @NotNull(message = "CPF is required.")
-    private String cpf;
-
-//    @NotNull(message = "PROFILE is required.")
-//    private Integer profile;
-
     @NotNull(message = "EMAIL is required.")
     private String email;
 
@@ -36,6 +27,4 @@ public class AdminDTO {
 //    @NotNull(message = "UPLOADED BOOKS is required.")
     private List<Integer> uploadedBooks;
 
-//    @NotNull(message = "BORROWED BOOKS is required.")
-    private List<Integer> borrowedBooks;
 }
