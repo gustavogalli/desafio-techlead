@@ -1,6 +1,6 @@
 package com.techlead.library.service;
 
-import com.techlead.library.domain.Admin;
+import com.techlead.library.domain.Librarian;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,9 +8,9 @@ import java.util.List;
 @Service
 public interface LibrarianService {
 
-    List<Admin> findAll();
+    List<Librarian> findAll();
 
-    Admin findById(Integer id);
+    Librarian findById(Integer id);
 
-    Admin findByEmail(String email);
+    Librarian findByEmail(String email);
 }

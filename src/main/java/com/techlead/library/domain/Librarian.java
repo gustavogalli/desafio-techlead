@@ -8,7 +8,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@Entity(name = "l99_admin")
+@Entity(name = "l99_librarian")
 public class Librarian extends Person {
 
     public Librarian(){

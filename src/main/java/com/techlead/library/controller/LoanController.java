@@ -1,9 +1,8 @@
 package com.techlead.library.controller;
 
-import com.techlead.library.domain.Loan;
 import com.techlead.library.domain.dtos.BookDTO;
 import com.techlead.library.domain.dtos.LoanDTO;
-import com.techlead.library.service.LoanService;
+import com.techlead.library.service.impl.LoanService;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;

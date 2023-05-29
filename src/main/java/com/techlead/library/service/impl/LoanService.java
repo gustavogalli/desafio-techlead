@@ -1,4 +1,4 @@
-package com.techlead.library.service;
+package com.techlead.library.service.impl;
 
 import com.techlead.library.domain.Loan;
 import com.techlead.library.domain.dtos.LoanDTO;

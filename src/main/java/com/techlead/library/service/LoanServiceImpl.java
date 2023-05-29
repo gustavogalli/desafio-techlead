@@ -1,11 +1,11 @@
 package com.techlead.library.service;
 
-import com.techlead.library.domain.Book;
 import com.techlead.library.domain.Loan;
 import com.techlead.library.domain.dtos.LoanDTO;
 import com.techlead.library.repository.LoanRepository;
 import com.techlead.library.service.exceptions.DataIntegrityViolationException;
 import com.techlead.library.service.exceptions.ObjectNotFoundException;
+import com.techlead.library.service.impl.LoanService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
