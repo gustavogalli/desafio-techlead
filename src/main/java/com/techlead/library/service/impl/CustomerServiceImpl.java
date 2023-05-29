@@ -42,6 +42,18 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    public Customer findByCpf(String cpf){
+        Optional<Customer> foundCustomer = this.repository.findByCpf(cpf);
+        return foundCustomer.orElseThrow(() -> new ObjectNotFoundException("Object not found."));
+    }
+
+    @Override
+    public Customer findByEmail(String email){
+        Optional<Customer> foundCustomer = this.repository.findByEmail(email);
+        return foundCustomer.orElseThrow(() -> new ObjectNotFoundException("Object not found."));
+    }
+
+    @Override
     public Customer create(CustomerDTO dto) {
         dto.setId(null);
         dto.setPassword(encoder.encode(dto.getPassword()));
@@ -52,6 +64,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Customer update(CustomerDTO dto) {
         findByCpf(dto);
+        dto.setPassword(encoder.encode(dto.getPassword()));
         return this.repository.save(mapper.map(dto, Customer.class));
     }
 
@@ -68,7 +81,7 @@ public class CustomerServiceImpl implements CustomerService {
     private void findByCpf(CustomerDTO dto){
         Optional<Customer> foundCustomer = this.repository.findByCpf(dto.getCpf());
 
-        if(foundCustomer.isPresent() && !foundCustomer.get().getId().equals(dto.getCpf())){
+        if(foundCustomer.isPresent() && !foundCustomer.get().getId().equals(dto.getId())){
             throw new DataIntegrityViolationException("Customer already registered.");
         }
     }

@@ -25,7 +25,7 @@ import java.util.Arrays;
 @EnableMethodSecurity
 public class SecurityConfig {
 
-    private static final String[] PUBLIC_MATCHERS = { "/login", "/customers" };
+    private static final String[] PUBLIC_MATCHERS = { "/login", "/customers/**"};
 
     @Autowired
     private JwtUtil jwtUtil;

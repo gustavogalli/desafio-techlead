@@ -13,6 +13,10 @@ public interface CustomerService {
 
     Customer findById(Integer id);
 
+    Customer findByCpf(String cpf);
+
+    Customer findByEmail(String email);
+
     Customer create(CustomerDTO dto);
 
     Customer update(CustomerDTO dto);

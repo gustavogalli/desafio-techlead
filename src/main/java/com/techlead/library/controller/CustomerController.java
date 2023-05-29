@@ -40,6 +40,16 @@ public class CustomerController {
         return ResponseEntity.ok().body(mapper.map(service.findById(id), CustomerDTO.class));
     }
 
+    @GetMapping("/cpf/{cpf}")
+    public ResponseEntity<CustomerDTO> findByCpf(@PathVariable String cpf){
+        return ResponseEntity.ok().body(mapper.map(service.findByCpf(cpf), CustomerDTO.class));
+    }
+
+    @GetMapping("/email/{email}")
+    public ResponseEntity<CustomerDTO> findByEmail(@PathVariable String email){
+        return ResponseEntity.ok().body(mapper.map(service.findByEmail(email), CustomerDTO.class));
+    }
+
 //    @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping
     public ResponseEntity<CustomerDTO> create(@Valid @RequestBody CustomerDTO dto) {
