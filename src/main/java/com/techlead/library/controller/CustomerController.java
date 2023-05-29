@@ -31,7 +31,7 @@ public class CustomerController {
     @GetMapping
     public ResponseEntity<List<CustomerDTO>> findAll(){
         return ResponseEntity.ok().body(this.service.findAll()
-                .stream().map(book -> mapper.map(book, CustomerDTO.class)).collect(Collectors.toList()));
+                .stream().map(customer -> mapper.map(customer, CustomerDTO.class)).collect(Collectors.toList()));
     }
 
 //    @PreAuthorize("hasAnyRole('ADMIN')")
