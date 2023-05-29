@@ -9,6 +9,7 @@ import com.techlead.library.service.exceptions.ObjectNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,6 +38,8 @@ public class LoanServiceImpl implements LoanService {
 
     @Override
     public Loan create(LoanDTO dto) {
+        dto.setStartDate(LocalDate.now());
+        dto.setEndDate(dto.getStartDate().plusDays(dto.getLoanDays()));
         return this.repository.save(mapper.map(dto, Loan.class));
     }
 

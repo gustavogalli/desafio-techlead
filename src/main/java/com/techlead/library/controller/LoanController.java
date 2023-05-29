@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/loan")
 public class LoanController {
 
-    public static final String ID = "/id";
+    public static final String ID = "/{id}";
 
     private LoanService service;
     private ModelMapper mapper;

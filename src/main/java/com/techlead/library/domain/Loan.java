@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,6 +23,8 @@ public class Loan {
     private Integer loanDays;
     private boolean loanApproved;
     private Integer status;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
     public Loan(Integer id, Integer book, Integer customer, Integer loanDays, boolean loanApproved, Integer status) {
         this.id = id;
