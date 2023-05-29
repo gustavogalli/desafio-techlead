@@ -56,6 +56,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Customer create(CustomerDTO dto) {
         dto.setId(null);
+        dto.setType("Customer");
         dto.setPassword(encoder.encode(dto.getPassword()));
         validateCpfAndEmail(dto);
         return repository.save(mapper.map(dto, Customer.class));
