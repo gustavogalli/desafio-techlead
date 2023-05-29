@@ -15,13 +15,18 @@ public class Admin extends Person {
         super();
     }
 
-    public Admin(Integer id, String name, String cpf, String email, String password, String type, List<Integer> uploadedBooks) {
+    public Admin(Integer id, String name, String cpf, String email, String password, String type, List<Integer> uploadedBooks, List<Integer> borrowedBooks) {
         super(id, name, cpf, email, password, type);
         this.uploadedBooks = uploadedBooks;
+        this.borrowedBooks = borrowedBooks;
     }
 
-//    @JsonIgnore
+    //    @JsonIgnore
 //    @OneToMany(mappedBy = "uploader")
     private List<Integer> uploadedBooks;
+
+    //    @JsonIgnore
+//    @OneToMany(mappedBy = "borrower")
+    private List<Integer> borrowedBooks;
 
 }

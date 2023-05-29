@@ -34,7 +34,7 @@ public abstract class Person {
 
     public Person(){
         super();
-        addProfile(Profile.CUSTOMER);
+        addProfile(Profile.ADMIN);
     }
 
     public Person(Integer id, String name, String cpf, String email, String password, String type) {
