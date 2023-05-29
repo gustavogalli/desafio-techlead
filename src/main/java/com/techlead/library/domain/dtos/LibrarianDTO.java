@@ -24,7 +24,6 @@ public class LibrarianDTO {
 
     private String type;
 
-//    @NotNull(message = "UPLOADED BOOKS is required.")
     private List<Integer> uploadedBooks;
 
 }

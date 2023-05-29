@@ -1,6 +1,5 @@
 package com.techlead.library.domain.dtos;
 
-import com.techlead.library.domain.Book;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,9 +22,6 @@ public class CustomerDTO {
     @NotNull(message = "CPF is required.")
     private String cpf;
 
-//    @NotNull(message = "PROFILE is required.")
-//    private Integer profile;
-
     @NotNull(message = "EMAIL is required.")
     private String email;
 
@@ -34,10 +30,8 @@ public class CustomerDTO {
 
     private String type;
 
-//    @NotNull(message = "UPLOADED BOOKS is required.")
     private List<Integer> uploadedBooks;
 
-//    @NotNull(message = "BORROWED BOOKS is required.")
     private List<Integer> borrowedBooks;
 
     private Integer daysOfPenalty;

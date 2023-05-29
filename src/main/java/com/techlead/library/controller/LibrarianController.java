@@ -22,7 +22,6 @@ public class LibrarianController {
         this.mapper = mapper;
     }
 
-//    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping(ID)
     public ResponseEntity<AdminDTO> findById(@PathVariable Integer id){
         return ResponseEntity.ok().body(mapper.map(service.findById(id), AdminDTO.class));

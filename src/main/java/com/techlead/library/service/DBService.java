@@ -1,8 +1,6 @@
 package com.techlead.library.service;
 
 import com.techlead.library.domain.Admin;
-import com.techlead.library.domain.Book;
-import com.techlead.library.domain.Customer;
 import com.techlead.library.domain.Librarian;
 import com.techlead.library.repository.AdminRepository;
 import com.techlead.library.repository.BookRepository;
@@ -11,8 +9,6 @@ import com.techlead.library.repository.LibrarianRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.Arrays;
 
 @Service
 public class DBService {

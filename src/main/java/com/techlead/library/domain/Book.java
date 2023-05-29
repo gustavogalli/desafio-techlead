@@ -2,9 +2,7 @@ package com.techlead.library.domain;
 
 import com.techlead.library.domain.enums.Status;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
@@ -41,12 +39,8 @@ public class Book {
         this.borrower = borrower;
     }
 
-    //    @ManyToOne
-//    @JoinColumn(name = "customer_id")
     private Integer uploader;
 
-//    @ManyToOne
-//    @JoinColumn(name = "customer_borrower_id")
     private Integer borrower;
 
 

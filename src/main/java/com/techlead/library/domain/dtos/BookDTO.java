@@ -1,6 +1,5 @@
 package com.techlead.library.domain.dtos;
 
-import com.techlead.library.domain.Customer;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,7 +32,6 @@ public class BookDTO {
     @NotNull(message = "UPLOADER is required.")
     private Integer uploader;
 
-//    @NotNull(message = "BORROWER is required.")
     private Integer borrower;
 
     private Integer status;

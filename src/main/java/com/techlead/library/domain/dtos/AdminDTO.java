@@ -24,7 +24,6 @@ public class AdminDTO {
 
     private String type;
 
-//    @NotNull(message = "UPLOADED BOOKS is required.")
     private List<Integer> uploadedBooks;
 
 }

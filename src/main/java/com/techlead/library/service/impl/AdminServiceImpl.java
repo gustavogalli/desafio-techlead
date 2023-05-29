@@ -1,14 +1,9 @@
 package com.techlead.library.service.impl;
 
 import com.techlead.library.domain.Admin;
-import com.techlead.library.domain.Admin;
-import com.techlead.library.domain.Person;
-import com.techlead.library.domain.dtos.AdminDTO;
-import com.techlead.library.repository.AdminRepository;
 import com.techlead.library.repository.AdminRepository;
 import com.techlead.library.repository.PersonRepository;
 import com.techlead.library.service.AdminService;
-import com.techlead.library.service.exceptions.DataIntegrityViolationException;
 import com.techlead.library.service.exceptions.ObjectNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
