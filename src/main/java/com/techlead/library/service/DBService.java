@@ -29,18 +29,10 @@ public class DBService {
 
     public void startsDB(){
 
-        Admin admin = new Admin(null, "Admin", "00000000000", "admin@library.com",
+        Admin admin = new Admin(1, "Admin", null, "admin@library.com",
                 encoder.encode("admin"), "Admin", null, null);
 
-        Book book1 = new Book(null, "ISBN 1234", "A mosca", "Franz Kafka",
-                "Editora A", 200, false, null, null);
-
-        Book book2 = new Book(null, "ISBN 6542", "Fogo no céu", "Travis Walton",
-                "Editora B", 310,false, null, null);
-
-        Book book3 = new Book(null, "ISBN 4512", "A ciranda", "John Kash",
-                "Editora C", 154, false, null, null);
-
+        adminRepository.save(admin);
 
         Customer cust1 = new Customer(null, "John", "1234567810", "john@mail.com",
                 encoder.encode("123"), "Customer", null, null);
@@ -54,8 +46,19 @@ public class DBService {
 //                encoder.encode("123"), "Customer", null, null);
 //        cust1.addProfile(Profile.CUSTOMER);
 
-        adminRepository.saveAll(Arrays.asList(admin));
-        bookRepository.saveAll(Arrays.asList(book1, book2, book3));
         customerRepository.saveAll(Arrays.asList(cust1));
+
+        Book book1 = new Book(null, "ISBN 1234", "A mosca", "Franz Kafka",
+                "Editora A", 200, false, admin.getId(), null);
+
+        Book book2 = new Book(null, "ISBN 6542", "Fogo no céu", "Travis Walton",
+                "Editora B", 310,false, admin.getId(), null);
+
+        Book book3 = new Book(null, "ISBN 4512", "A ciranda", "John Kash",
+                "Editora C", 154, false, admin.getId(), null);
+
+        Book book4 = new Book(null, "ISBN 6541", "O livrão", "Suzanne Pilp",
+                "Editora d", 312, false, cust1.getId(), null);
+        bookRepository.saveAll(Arrays.asList(book1, book2, book3, book4));
     }
 }
