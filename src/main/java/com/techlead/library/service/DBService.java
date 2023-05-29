@@ -28,7 +28,7 @@ public class DBService {
                 "Editora A", 200, false, null, null);
 
         Book book2 = new Book(null, "ISBN 6542", "Fogo no céu", "Travis Walton",
-                "Editora B", 310, false, null, null);
+                "Editora B", 310,false, null, null);
 
         Book book3 = new Book(null, "ISBN 4512", "A ciranda", "John Kash",
                 "Editora C", 154, false, null, null);

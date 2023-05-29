@@ -20,18 +20,18 @@ public class Customer extends Person {
         super();
     }
 
-    public Customer(Integer id, String name, String cpf, String email, String password, List<Book> uploadedBooks, List<Book> borrowedBooks) {
+    public Customer(Integer id, String name, String cpf, String email, String password, List<Integer> uploadedBooks, List<Integer> borrowedBooks) {
         super(id, name, cpf, email, password);
         this.uploadedBooks = uploadedBooks;
         this.borrowedBooks = borrowedBooks;
     }
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "uploader")
-    private List<Book> uploadedBooks;
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "uploader")
+    private List<Integer> uploadedBooks;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "borrower")
-    private List<Book> borrowedBooks;
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "borrower")
+    private List<Integer> borrowedBooks;
 
 }

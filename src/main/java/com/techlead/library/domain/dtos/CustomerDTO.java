@@ -1,10 +1,13 @@
 package com.techlead.library.domain.dtos;
 
+import com.techlead.library.domain.Book;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -28,4 +31,10 @@ public class CustomerDTO {
 
     @NotNull(message = "PASSWORD is required.")
     private String password;
+
+//    @NotNull(message = "UPLOADED BOOKS is required.")
+    private List<Integer> uploadedBooks;
+
+//    @NotNull(message = "BORROWED BOOKS is required.")
+    private List<Integer> borrowedBooks;
 }

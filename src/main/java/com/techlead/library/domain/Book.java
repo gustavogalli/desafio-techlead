@@ -26,13 +26,13 @@ public class Book {
     private Integer pageQty;
     private boolean borrowed;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer uploader;
+//    @ManyToOne
+//    @JoinColumn(name = "customer_id")
+    private Integer uploader;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_borrower_id")
-    private Customer borrower;
+//    @ManyToOne
+//    @JoinColumn(name = "customer_borrower_id")
+    private Integer borrower;
 
 
 }
