@@ -53,8 +53,7 @@ public class CustomerController {
 //    @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping
     public ResponseEntity<CustomerDTO> create(@Valid @RequestBody CustomerDTO dto) {
-        Customer newObj = service.create(dto);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newObj.getId()).toUri();
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(service.create(dto).getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
 
