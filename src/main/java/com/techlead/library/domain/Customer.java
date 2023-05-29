@@ -20,8 +20,8 @@ public class Customer extends Person {
         super();
     }
 
-    public Customer(Integer id, String name, String cpf, String email, String password, List<Integer> uploadedBooks, List<Integer> borrowedBooks) {
-        super(id, name, cpf, email, password);
+    public Customer(Integer id, String name, String cpf, String email, String password, String type, List<Integer> uploadedBooks, List<Integer> borrowedBooks) {
+        super(id, name, cpf, email, password, type);
         this.uploadedBooks = uploadedBooks;
         this.borrowedBooks = borrowedBooks;
     }

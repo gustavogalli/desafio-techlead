@@ -26,6 +26,8 @@ public abstract class Person {
 
     private String password;
 
+    private String type;
+
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "PROFILES")
     protected Set<Integer> profiles = new HashSet<>();
@@ -35,12 +37,13 @@ public abstract class Person {
         addProfile(Profile.CUSTOMER);
     }
 
-    public Person(Integer id, String name, String cpf, String email, String password) {
+    public Person(Integer id, String name, String cpf, String email, String password, String type) {
         this.id = id;
         this.name = name;
         this.cpf = cpf;
         this.email = email;
         this.password = password;
+        this.type = type;
     }
 
     public Integer getId() {
@@ -81,6 +84,14 @@ public abstract class Person {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public Set<Profile> getProfiles() {
