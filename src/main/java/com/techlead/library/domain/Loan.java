@@ -1,10 +1,7 @@
 package com.techlead.library.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
+import com.techlead.library.domain.enums.Status;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,7 +9,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity(name = "l05_loan")
 public class Loan {
 
@@ -24,5 +20,14 @@ public class Loan {
     private Integer customer;
     private Integer loanDays;
     private boolean loanApproved;
+    private Integer status;
 
+    public Loan(Integer id, Integer book, Integer customer, Integer loanDays, boolean loanApproved, Integer status) {
+        this.id = id;
+        this.book = book;
+        this.customer = customer;
+        this.loanDays = loanDays;
+        this.loanApproved = loanApproved;
+        this.status = Status.OPEN.getCode();
+    }
 }

@@ -4,7 +4,9 @@ public enum Status {
     AVAILABLE(0),
     BORROWED(1),
     OVERDUE(2),
-    LOST(3);
+    LOST(3),
+    OPEN(8),
+    CLOSED(9);
 
     private Integer code;
 
