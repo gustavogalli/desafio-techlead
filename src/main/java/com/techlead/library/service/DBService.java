@@ -49,16 +49,16 @@ public class DBService {
         customerRepository.saveAll(Arrays.asList(cust1));
 
         Book book1 = new Book(null, "ISBN 1234", "A mosca", "Franz Kafka",
-                "Editora A", 200, false, admin.getId(), null);
+                "Editora A", 200, 0, admin.getId(), null);
 
         Book book2 = new Book(null, "ISBN 6542", "Fogo no céu", "Travis Walton",
-                "Editora B", 310,false, admin.getId(), null);
+                "Editora B", 310,0, admin.getId(), null);
 
         Book book3 = new Book(null, "ISBN 4512", "A ciranda", "John Kash",
-                "Editora C", 154, false, admin.getId(), null);
+                "Editora C", 154, 0, admin.getId(), null);
 
         Book book4 = new Book(null, "ISBN 6541", "O livrão", "Suzanne Pilp",
-                "Editora d", 312, false, cust1.getId(), null);
+                "Editora d", 312, 0, cust1.getId(), null);
         bookRepository.saveAll(Arrays.asList(book1, book2, book3, book4));
     }
 }

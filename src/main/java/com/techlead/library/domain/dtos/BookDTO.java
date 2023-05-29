@@ -36,4 +36,6 @@ public class BookDTO {
 //    @NotNull(message = "BORROWER is required.")
     private Integer borrower;
 
+    private Integer status;
+
 }
