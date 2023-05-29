@@ -54,9 +54,6 @@ public class BookServiceImpl implements BookService {
     public void delete(Integer id){
         Optional<Book> foundBook = this.repository.findById(id);
 
-        if(foundBook.get().getStatus() != 0 || foundBook.get().getStatus() != 3){
-            throw new DataIntegrityViolationException("The book cannot be deleted.");
-        }
         this.repository.deleteById(id);
     }
 
